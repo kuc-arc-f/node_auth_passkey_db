@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passkey ログイン</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <h1>Passkey ログイン</h1>
+
+  <section id="guest" hidden>
+    <p class="lead">パスワードは使いません。Windows Hello（顔・指紋・PIN）で本人確認します。</p>
+
+    <button id="login" class="primary">Windows Hello でログイン</button>
+
+    <hr>
+
+    <h2>はじめての方</h2>
+    <label for="username">ユーザー名</label>
+    <input id="username" autocomplete="username webauthn" placeholder="例: taro_yamada" maxlength="32">
+    <button id="register">Passkey を作成して登録</button>
+  </section>
+
+  <section id="member" hidden>
+    <p class="lead"><strong id="who"></strong> としてログイン中です。</p>
+    <h2>登録済みの Passkey</h2>
+    <ul id="keys"></ul>
+    <button id="add">この端末の Passkey を追加</button>
+    <button id="logout" class="ghost">ログアウト</button>
+  </section>
+
+  <p id="msg" role="status" aria-live="polite"></p>
+</main>
+<script src="/app.js" type="module"></script>
+</body>
+</html>
